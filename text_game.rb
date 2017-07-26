@@ -38,32 +38,51 @@ user_input = gets.chomp.downcase
 
 case user_input
 
-when "look"
-  user_answer_look = 1
+when "look" || "pickup" || "use"
+  $user_answer_look = 1
   break
 
 when "pickup"
-  user_answer_pickup = 1
+  $user_answer_pickup = 1
   break
 
 when "use"
-  user_answer_use = 1
+  $user_answer_use = 1
   break
 
 when "exit"
   puts "ARE YOU SURE YOU WANT TO EXIT THE GAME? Y/N"
 
   exit_answer = gets.chomp.downcase
-if exit_answer = "y"
+
+if exit_answer == "y" 
   exit
 else
+  break
 end
 
 else
-  user_answer_error = 1
+  $user_answer_error = 1
   puts "I'm sorry, that is an invalid command."
 end
 
 end
 
-puts "it broke out of the loop"
+
+if $user_answer_look == 1
+
+  puts "Which direction would you like to look?"
+
+
+elsif $user_answer_pickup == 1
+  puts "What do you wish to pick up?"
+
+
+elsif $user_answer_use == 1
+  puts "What do you wish to use?"
+
+
+else
+
+puts "I'm sorry, that is an invalid command."
+end
