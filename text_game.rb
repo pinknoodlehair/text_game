@@ -28,9 +28,9 @@ gets.chomp
 
 puts '-' * 10
 
-puts "You awaken to find yourself in a room that is unfamiliar to you. You have no memory of how or why\
+puts "\nYou awaken to find yourself in a room that is unfamiliar to you. You have no memory of how or why\
  you ended up here. The room is stuffy but you can feel a cool breeaze from underneath\
- the door. What will you do?"
+ the door. What will you do?\n"
 
 loop do
 
@@ -51,38 +51,44 @@ when "use"
   break
 
 when "exit"
-  puts "ARE YOU SURE YOU WANT TO EXIT THE GAME? Y/N"
+  puts "\nARE YOU SURE YOU WANT TO EXIT THE GAME? Y/N\n"
 
   exit_answer = gets.chomp.downcase
 
 if exit_answer == "y" 
   exit
 else
-  break
+  puts "\nAvailable commands are 'LOOK', 'USE', and 'PICKUP'."
 end
 
 else
   $user_answer_error = 1
-  puts "I'm sorry, that is an invalid command."
+  puts "\nI'm sorry, that is an invalid command."
 end
+  end
 
-end
 
+loop do
 
 if $user_answer_look == 1
-
-  puts "Which direction would you like to look?"
-
+ puts "\nWhich direction would you like to look?"
+break
 
 elsif $user_answer_pickup == 1
-  puts "What do you wish to pick up?"
-
+  puts "\nWhat do you wish to pick up?"
+break
 
 elsif $user_answer_use == 1
-  puts "What do you wish to use?"
-
+  puts "\nWhat do you wish to use?"
+break
 
 else
 
-puts "I'm sorry, that is an invalid command."
+puts "\nI'm sorry, that is an invalid command."
+
 end
+  end
+
+puts "\nIt broke out of the loop."
+
+user_answer_context = gets.chomp.downcase
